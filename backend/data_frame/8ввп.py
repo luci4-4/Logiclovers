@@ -45,4 +45,5 @@ plt.xlabel('Годы')
 plt.ylabel('ВВП в миллионах')
 plt.title(f'Гистограмма для {test}')
 
+plt.savefig('график.png')
 plt.show()
