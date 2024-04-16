@@ -13,22 +13,17 @@ df = pd.read_csv('section_8.csv',sep=';')
 
 df.drop(range(0,48))
 df.drop(range(2208,17664))
-print(df)
+
 
 df1 = df.set_index('year')
-print(df1)
 
 df1=df1.drop(['section','indicator_name','indicator_unit','comment','indicator_code'],axis=1)
-print(df1)
 
 df1 = df1.loc[df1['object_level'] != 'федеральный округ']
-print(df1)
 
 df1=df1.drop(['object_level'],axis=1)
-print(df1)
 
 df1 = df1.loc[df1['indicator_value'] != -99999999.0]
-print(df1)
 
 test = "Белгородская область"
 df_obl = df1.loc[df1['object_name'] == test]
@@ -42,7 +37,7 @@ val = list(df_obl['indicator_value'])
 plt.bar(years, val)
 
 plt.xlabel('Годы')
-plt.ylabel('ВВП в миллионах')
+plt.ylabel('ВВП в млн рублей')
 plt.title(f'Гистограмма для {test}')
 
 plt.show()
